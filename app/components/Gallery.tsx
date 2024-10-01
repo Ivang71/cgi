@@ -25,7 +25,7 @@ export const Gallery = () => {
     const windowWidth = useWindowWidth()
 
     const close = () => setIndex(-1)
-
+ 
     useEffect(() => {
         if (document.readyState === 'complete') {
             autooplayVideos()
