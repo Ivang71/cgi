@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from 'next/image'
 import Lightbox from "yet-another-react-lightbox"
 import Video from "yet-another-react-lightbox/plugins/video"
@@ -12,64 +12,78 @@ import { SlideFooter } from "./SlideFooter"
 import frame from '../../public/pics/frame_preview.avif'
 
 
+const autooplayVideos = () => {
+    console.log('do autoplay')
+    document.querySelectorAll('video').forEach((v) => {
+        v.preload = "metadata"
+        v.autoplay = true
+    })
+}
+
 export const Gallery = () => {
     const [index, setIndex] = useState<number>(-1)
     const windowWidth = useWindowWidth()
 
     const close = () => setIndex(-1)
 
+    useEffect(() => {
+        if (document.readyState === 'complete') {
+            autooplayVideos()
+        }
+    }, [])
+
     return (
         <div className={s.gallery}>
             <div className={s.firstRow}>
                 <Image src={frame} alt="" priority width={630} height={630} className='fade-in' onClick={() => setIndex(0)} />
-                <Image src="/pics/ring1_preview.avif" alt="" priority width={626} height={719} className='fade-in' onClick={() => setIndex(1)}/>
+                <Image src="/pics/ring1_preview.avif" alt="" priority width={626} height={719} className='fade-in' onClick={() => setIndex(1)} />
                 <video width="475" height="475" muted autoPlay loop preload="metadata" className='fade-in' onClick={() => setIndex(2)}>
                     <source src="/vids/milk_preview.webm" type="video/webm" />
                 </video>
             </div>
 
             <div className={s.secondRow}>
-                <Image src="/pics/ring2_preview.avif" alt="" priority width={626} height={719} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(3)}/>
-                <Image src="/pics/balloons_preview.avif" alt="" priority width={630} height={630} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(4)}/>
-                <Image src="/pics/ring3_preview.avif" alt="" priority width={626} height={719} className='fade-in' onClick={() => setIndex(5)}/>
+                <Image src="/pics/ring2_preview.avif" alt="" priority width={626} height={719} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(3)} />
+                <Image src="/pics/balloons_preview.avif" alt="" priority width={630} height={630} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(4)} />
+                <Image src="/pics/ring3_preview.avif" alt="" priority width={626} height={719} className='fade-in' onClick={() => setIndex(5)} />
             </div>
 
-            <video width="1446" height="814" muted autoPlay loop preload="metadata" className={`${s.cameraVid} fade-in`} onClick={() => setIndex(6)}>
+            <video width="1446" height="814" muted autoPlay loop preload="none" className={`${s.cameraVid} fade-in`} onClick={() => setIndex(6)}>
                 <source src="/vids/camera_preview.webm" type="video/webm" />
             </video>
 
             <div className={s.thirdRow}>
-                <video width="438" height="547" muted autoPlay loop preload="metadata" className={`${s.pucksVid} fade-in`} onClick={() => setIndex(7)}>
+                <video width="438" height="547" muted loop preload="none" className={`${s.pucksVid} fade-in`} onClick={() => setIndex(7)}>
                     <source src="/vids/pucks_preview.webm" type="video/webm" />
                 </video>
-                <video width="1000" height="1000" muted autoPlay loop preload="metadata" className={`${s.yogurtVid} fade-in`} onClick={() => setIndex(8)}>
+                <video width="1000" height="1000" muted loop preload="none" className={`${s.yogurtVid} fade-in`} onClick={() => setIndex(8)}>
                     <source src="/vids/yogurt.webm" type="video/webm" />
                 </video>
-                <video width="438" height="438" muted autoPlay loop preload="metadata" className={`${s.coolinartVid} fade-in`} onClick={() => setIndex(9)}>
+                <video width="438" height="438" muted loop preload="none" className={`${s.coolinartVid} fade-in`} onClick={() => setIndex(9)}>
                     <source src="/vids/coolinart_preview.webm" type="video/webm" />
                 </video>
             </div>
 
-            <video width="1446" height="606" muted autoPlay loop preload="metadata" className={`${s.joisVid} fade-in`} onClick={() => setIndex(10)}>
+            <video width="1446" height="606" muted loop preload="none" className={`${s.joisVid} fade-in`} onClick={() => setIndex(10)}>
                 <source src="/vids/jois_preview.webm" type="video/webm" />
             </video>
 
             <div className={s.fifthRow}>
-                <video width="942" height="1177" muted autoPlay loop preload="metadata" className={`${s.phoneVid} fade-in`} onClick={() => setIndex(11)}>
+                <video width="942" height="1177" muted loop preload="none" className={`${s.phoneVid} fade-in`} onClick={() => setIndex(11)}>
                     <source src="/vids/phone_preview.webm" type="video/webm" />
                 </video>
                 <Image src="/pics/flower_preview.avif" alt="" priority={false} width={650} height={751} loading='lazy' className={`${s.flower} fade-in`} onClick={() => setIndex(13)} />
                 <Image src="/pics/chakchak_preview.avif" alt="" priority={false} width={650} height={757} loading='lazy' className={`${s.chakchak} fade-in`} onClick={() => setIndex(12)} />
             </div>
 
-            <video width="1146" height="814" muted autoPlay loop preload="metadata" className={`${s.canVid} fade-in`} onClick={() => setIndex(14)}>
+            <video width="1146" height="814" muted loop preload="none" className={`${s.canVid} fade-in`} onClick={() => setIndex(14)}>
                 <source src="/vids/can_preview.webm" type="video/webm" />
             </video>
 
 
             <div className={s.seventhRow}>
                 <Image src="/pics/burb1_preview.avif" alt="" priority={false} width={604} height={859} loading='lazy' className='fade-in' onClick={() => setIndex(15)} />
-                <video width="517" height="650" muted autoPlay loop preload="metadata" className={`${s.phoneVid} fade-in`} onClick={() => setIndex(16)}>
+                <video width="517" height="650" muted loop preload="none" className={`${s.phoneVid} fade-in`} onClick={() => setIndex(16)}>
                     <source src="/vids/burberry_preview.webm" type="video/webm" />
                 </video>
                 <Image src="/pics/burb2_preview.avif" alt="" priority={false} width={604} height={859} loading='lazy' className='fade-in' onClick={() => setIndex(17)} />
@@ -80,13 +94,13 @@ export const Gallery = () => {
 
 
             <div className={s.ninethRow}>
-                <video width="473" height="841" muted autoPlay loop preload="metadata" className='fade-in' onClick={() => setIndex(19)}>
+                <video width="473" height="841" muted loop preload="none" className='fade-in' onClick={() => setIndex(19)}>
                     <source src="/vids/suitcase_1_preview.webm" type="video/webm" />
                 </video>
-                <video width="473" height="841" muted autoPlay loop preload="metadata" className='fade-in' onClick={() => setIndex(20)}>
+                <video width="473" height="841" muted loop preload="none" className='fade-in' onClick={() => setIndex(20)}>
                     <source src="/vids/suitcase_2_preview.webm" type="video/webm" />
                 </video>
-                <video width="473" height="841" muted autoPlay loop preload="metadata" className='fade-in' onClick={() => setIndex(21)}>
+                <video width="473" height="841" muted loop preload="none" className='fade-in' onClick={() => setIndex(21)}>
                     <source src="/vids/suitcase_3_preview.webm" type="video/webm" />
                 </video>
             </div>
@@ -105,7 +119,7 @@ export const Gallery = () => {
                     }
                 }}
                 render={{
-                    slideFooter: ({slide}) => (<SlideFooter slide={slide}/>), // @ts-ignore
+                    slideFooter: ({ slide }) => (<SlideFooter slide={slide} />), // @ts-ignore
                     buttonClose: (props: any) => (
                         <button type="button" title="Close" aria-label="Close" className={`yarl__button ${s.closeBtn}`} key='close' style={{ filter: "none" }}>
                             <Image {...props} src="/svg/cross.svg" alt="" width={23} height={23} onClick={close} key='cross' />
