@@ -17,7 +17,7 @@ export const Header = ({ isMobileMenuOpen, toggleMobileMenu }: HeaderProps) => {
             {windowWidth > 1024 ? (
                 <>
                     <Link href="/">
-                        <Image src="/svg/logo.svg" alt="" width={133} height={44} className={s.logo} />
+                        <Image src="/svg/logo.svg" alt="" width={133} height={44} className={s.logo} loading='eager' />
                     </Link>
                     <div className={s.nav}>
                         <div className={s.social}>
