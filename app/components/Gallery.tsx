@@ -9,6 +9,7 @@ import s from '@/app/ui/gallery.module.css'
 import { slides } from "@/app/consts/slides"
 import { useWindowWidth } from "@/app/hooks"
 import { SlideFooter } from "./SlideFooter"
+import frame from '../../public/pics/frame_preview.avif'
 
 
 export const Gallery = () => {
@@ -20,8 +21,8 @@ export const Gallery = () => {
     return (
         <div className={s.gallery}>
             <div className={s.firstRow}>
-                <Image src="/pics/frame_preview.avif" alt="" priority width={2477} height={2476} className='fade-in' onClick={() => setIndex(0)} sizes="100vw" />
-                <Image src="/pics/ring1_preview.avif" alt="" priority width={2477} height={2843} className='fade-in' onClick={() => setIndex(1)} quality={10}sizes="100vw"/>
+                <Image src={frame} alt="" priority width={2477} height={2476} className='fade-in' onClick={() => setIndex(0)} sizes="100vw" />
+                <Image src="/pics/ring1_preview.avif" alt="" priority width={2477} height={2843} className='fade-in' onClick={() => setIndex(1)} sizes="100vw"/>
                 <video width="2160" height="2160" muted autoPlay loop preload="metadata" className='fade-in' onClick={() => setIndex(2)}>
                     <source src="/vids/milk_preview.webm" type="video/webm" />
                 </video>
