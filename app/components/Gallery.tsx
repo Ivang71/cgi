@@ -28,9 +28,9 @@ export const Gallery = () => {
             </div>
 
             <div className={s.secondRow}>
-                <Image src="/pics/ring2_preview.avif" alt="" width={2160} height={2160} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(3)} sizes="100vw"/>
-                <Image src="/pics/balloons_preview.avif" alt="" width={2477} height={2476} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(4)} sizes="100vw"/>
-                <Image src="/pics/ring3_preview.avif" alt="" width={2476} height={2842} className='fade-in' onClick={() => setIndex(5)} sizes="100vw"/>
+                <Image src="/pics/ring2_preview.avif" alt="" priority width={2160} height={2160} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(3)} sizes="100vw"/>
+                <Image src="/pics/balloons_preview.avif" alt="" priority width={2477} height={2476} className={`${s.balloonsImg} fade-in`} onClick={() => setIndex(4)} sizes="100vw"/>
+                <Image src="/pics/ring3_preview.avif" alt="" priority width={2476} height={2842} className='fade-in' onClick={() => setIndex(5)} sizes="100vw"/>
             </div>
 
             <video width="2560" height="1440" muted autoPlay loop preload="metadata" className={`${s.cameraVid} fade-in`} onClick={() => setIndex(6)}>

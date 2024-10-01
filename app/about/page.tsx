@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import '@/app/ui/index.css'
 import s from '@/app/ui/about.module.css'
-import { ScrollAnimation } from '@/app/components'
+import { ScrollAnimation, LazyImage } from '@/app/components'
 import { Rubik } from 'next/font/google'
 
 const rubik = Rubik({ 
@@ -12,9 +12,9 @@ const rubik = Rubik({
 export default async function AboutPage() {
     return (
         <>
-            <ScrollAnimation />
             <div className={s.aboutPage}>
-                <Image src="/pics/guy.avif" alt="Alexander Shumlyansky" width={3005} height={4006} className={`${s.guy} fade-in`} />
+                {/* <Image src="/pics/guy.avif" alt="Alexander Shumlyansky" width={3005} height={4006} className={`${s.guy} fade-in`} /> */}
+                <LazyImage src="/pics/guy.avif" alt="Alexander Shumlyansky" width={3005} height={4006} className={`${s.guy}`}/>
                 <div className={s.rightColumn}>
                     <div className={`${rubik.className} font-sans`}>
                         <p>Я 3D & Моушн-дизайнер, специализируюсь на создании цепляющих рендеров и моушн-роликов.</p>
