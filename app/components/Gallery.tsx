@@ -12,24 +12,14 @@ import { SlideFooter } from "./SlideFooter"
 import frame from '../../public/pics/frame_preview.avif'
 
 
-const autooplayVideos = () => {
-    console.log('do autoplay')
-    document.querySelectorAll('video').forEach((v) => {
-        v.preload = "metadata"
-        v.autoplay = true
-    })
-}
-
 export const Gallery = () => {
     const [index, setIndex] = useState<number>(-1)
     const windowWidth = useWindowWidth()
 
     const close = () => setIndex(-1)
- 
+
     useEffect(() => {
-        if (document.readyState === 'complete') {
-            autooplayVideos()
-        }
+        document.querySelectorAll('video').forEach((v) => { v.preload = "metadata"; v.autoplay = true })
     }, [])
 
     return (
