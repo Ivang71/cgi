@@ -48,7 +48,7 @@ export const Gallery = () => {
                 <Image src="/pics/ring3_preview.avif" alt="" priority width={626} height={719} className='fade-in' onClick={() => setIndex(5)} />
             </div>
 
-            <video width="1446" height="814" muted autoPlay loop preload="none" className={`${s.cameraVid} fade-in`} onClick={() => setIndex(6)}>
+            <video width="1446" height="814" muted loop preload="none" className={`${s.cameraVid} fade-in`} onClick={() => setIndex(6)}>
                 <source src="/vids/camera_preview.webm" type="video/webm" />
             </video>
 
