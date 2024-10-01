@@ -95,10 +95,15 @@
     
     .canVid {
         margin-top: 9px;
+        width: 100%;
     }
 
     .chakchak, .flower {
         grid-row: span 1;
+    }
+
+    .chakchak {
+        align-self: end;
     }
 
     .flower {
