@@ -22,7 +22,15 @@ export const SlideFooter = ({ slide }: { slide: CustomSlide }) => {
         setTimeout(() => {
             let container: HTMLDivElement | null = null
             if (isVideo) {
-                container = document.querySelector(`video[playsinline] source[src="${slideSrc}"]`)?.parentNode?.parentNode as HTMLDivElement
+                const video = document.querySelector(`video[playsinline] source[src="${slideSrc}"]`)?.parentNode as HTMLVideoElement
+                const vw = video.width, vh = video.height
+                document.addEventListener('fullscreenchange', () => {
+                    video.width = vw
+                    video.height = vh
+                    video.style.width = '100%'
+                    video.style.height = '100%'
+                })
+                container = video?.parentNode as HTMLDivElement
                 const slider = container?.parentNode as HTMLDivElement
                 slider.style.flexDirection = 'column'
             } else {
