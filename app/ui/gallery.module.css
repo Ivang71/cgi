@@ -17,6 +17,10 @@
         width: 76.54%;
     }
 
+    .gallery img, .gallery video {
+        width: 100%;
+    }
+
     .firstRow {
         width: 100%;
         display: grid;
@@ -24,11 +28,12 @@
         grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 12px;
     }
-    
-    .firstRow img, .secondRow img {
-        max-width: 100%;
+
+    .firstRow img,
+    .secondRow img {
+        width: 100%;
     }
-    
+
     .secondRow {
         margin-top: -3.9%;
         width: 100%;
@@ -38,7 +43,7 @@
         grid-column-gap: 12px;
         align-items: end;
     }
-    
+
     .balloonsImg {
         align-self: end;
     }
@@ -63,7 +68,8 @@
         gap: 8.39px;
     }
 
-    .pucksVid, .coolinartVid {
+    .pucksVid,
+    .coolinartVid {
         grid-row: span 1;
     }
 
@@ -92,13 +98,14 @@
     .phoneVid {
         grid-row: span 2;
     }
-    
+
     .canVid {
         margin-top: 9px;
         width: 100%;
     }
 
-    .chakchak, .flower {
+    .chakchak,
+    .flower {
         grid-row: span 1;
     }
 
@@ -123,10 +130,11 @@
         margin-top: 5px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 13.43px;        
+        gap: 13.43px;
     }
 
-    .customGalleryNav, .closeBtn {
+    .customGalleryNav,
+    .closeBtn {
         filter: none;
         padding: 0;
     }
@@ -139,6 +147,8 @@
         padding: 50px 21px 50px 21px;
     }
 }
+
+@media (min-width: 1920px) {}
 
 .slideFooter {
     width: calc(100% - 39px);
